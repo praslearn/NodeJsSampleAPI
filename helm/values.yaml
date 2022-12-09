@@ -4,7 +4,7 @@
 
 application:
   author: prasath
-  name: sampleapi #Aadhar Vault Manager
+  name: sampleapiapp #Aadhar Vault Manager
   type: api
 
 replicaCount: 1
