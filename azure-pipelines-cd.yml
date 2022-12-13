@@ -6,7 +6,7 @@ variables:
   - group: acr-variable-group
   - template: ../common/cd-vars-template.yml
     parameters:
-      projectName: "project-one"
+      projectName: "NodeJsSampleAPI"
   - name: k8sNamespace
     value: myteam
 
@@ -18,7 +18,7 @@ resources:
         enabled: true
         branches:
           include:
-            - refs/tags/project-one/*
+            - refs/tags/NodeJsSampleAPI/*
 
 # define 5 variables: aks, rg, aksSpId, aksSpSecret and aksSpTenantId in the Azure pipeline UI definition
 stages:
