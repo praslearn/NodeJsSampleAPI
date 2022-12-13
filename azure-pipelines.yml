@@ -2,18 +2,29 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+trigger: none
+  # branches:
+  #   include:
+  #     - refs/tags/project-one/*
+  # paths:
+  #   include:
+  #     - src/Services/ProjectOne/*
 
-trigger:
-- main
+pr: none
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: "ubuntu-latest"
+
+variables:
+  - group: acr-variable-group
+  - template: ../common/ci-vars-template.yml
+    parameters:
+      projectName: "NodeJsSampleAPI"
+      dockerRegistryServiceConnectionName: "DemoACR24"
+      dockerfile: "Dockerfile"
+      buildContext: "$(System.DefaultWorkingDirectory)"
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - template: ../common/ci-steps-template.yml
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  
