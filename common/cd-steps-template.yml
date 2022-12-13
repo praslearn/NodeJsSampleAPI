@@ -26,8 +26,8 @@ steps:
            --wait \
            --version $helmChartVersion \
            --set image.repository=$(registryServerName)/$(projectName) \
-           -f $(pipeline.workspace)/ci-pipeline/build-artifact/deploy/k8s/helm/app.yaml \
-           -f $(pipeline.workspace)/ci-pipeline/build-artifact/deploy/k8s/helm/inf.yaml \
+           -f $(pipeline.workspace)/ci-pipeline/build-artifact/helm/app.yaml \
+           -f $(pipeline.workspace)/ci-pipeline/build-artifact/helm/inf.yaml \
            $(projectName) \
            $(pipeline.workspace)/install/$(projectName)
     failOnStderr: true
